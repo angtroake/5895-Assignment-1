@@ -139,7 +139,7 @@ public class ConsoleRunner {
         int yCoordinate = scanner.nextInt();
 
         // Making the player's move:
-        game.placePlayerPiece(xCoordinate, yCoordinate);
+        game.placePlayerPiece(yCoordinate, xCoordinate);
 
         System.out.println("After your move:");
         System.out.println(game.getBoard().toString());
