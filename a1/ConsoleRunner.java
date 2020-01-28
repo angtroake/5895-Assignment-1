@@ -140,6 +140,9 @@ public class ConsoleRunner {
 
         // Making the player's move:
         game.placePlayerPiece(xCoordinate, yCoordinate);
+
+        System.out.println("After your move:");
+        System.out.println(game.getBoard().toString());
     }
 
     // Executes an AI move:
