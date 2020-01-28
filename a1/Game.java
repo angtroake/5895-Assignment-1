@@ -7,7 +7,7 @@ package a1;
  */
 
 public class Game {
-    private Board board = new Board();
+    private Board board;
     private GameStatus status;
     private AI ai;
     private boolean playerIsX;
@@ -22,7 +22,8 @@ public class Game {
     public Game(boolean playerIsX, boolean challenging) {
     	this.playerIsX = playerIsX;
     	this.status = GameStatus.IN_PROGRESS;
-    	this.ai = challenging ? new SmartAI(!playerIsX) : new DumbAI(!playerIsX);
+        this.ai = challenging ? new SmartAI(!playerIsX) : new DumbAI(!playerIsX);
+        this.board = new Board();
     }
 
     /**
