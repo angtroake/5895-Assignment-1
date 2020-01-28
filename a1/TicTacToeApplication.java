@@ -12,5 +12,6 @@ public class TicTacToeApplication {
         /*
          * TBD
          */
+    	new ConsoleRunner();
     }
 }
