@@ -63,4 +63,44 @@ public class Game {
     	Move move = ai.chooseMove(this.board);
     	this.board.set(move);
     }
+    
+    
+    public void checkWin() {
+    	//Check Vertical Win
+    	for(int i = 0 ; i < 3 ; i++) {
+    		if(this.board.get(i, 0) == this.board.get(i, 1) && this.board.get(i, 0) == this.board.get(i, 2)) {
+    			if(this.board.get(i, 0) == ' ') continue;
+    			this.status = this.board.get(i, 0) == 'X' ? GameStatus.X_WON : GameStatus.O_WON;
+    			return;
+    		}
+    	}
+    	
+    	//check horizontal win
+    	for(int j = 0 ; j < 3 ; j++) {
+    		if(this.board.get(0, j) == this.board.get(1, j) && this.board.get(0, j) == this.board.get(2, j)) {
+    			if(this.board.get(0, j) == ' ') continue;
+    			this.status = this.board.get(0, j) == 'X' ? GameStatus.X_WON : GameStatus.O_WON;
+    			return;
+    		}
+    	}
+    	
+    	
+    	//diagonal win
+    	if(this.board.get(0, 0) == this.board.get(1, 1) && this.board.get(0, 0) == this.board.get(2, 2)) {
+    		if(this.board.get(0, 0) != ' ') {
+	    		this.status = this.board.get(0, 0) == 'X' ? GameStatus.X_WON : GameStatus.O_WON;
+	    		return;
+    		}
+    	}
+    	
+    	if(this.board.get(0, 2) == this.board.get(1, 1) && this.board.get(0, 2) == this.board.get(2, 0)) {
+    		if(this.board.get(0, 2) != ' ') {
+	    		this.status = this.board.get(0, 2) == 'X' ? GameStatus.X_WON : GameStatus.O_WON;
+	    		return;
+    		}
+    	}
+    	
+    	
+    	
+    }
 }
