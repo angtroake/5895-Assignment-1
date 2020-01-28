@@ -85,18 +85,22 @@ public class ConsoleRunner {
              if (playerIsX) {
                  // Player moves first:
                  playerMove();
+                 game.checkWin();
                  if (!checkStatus()) { break; }
 
                  // Then AI moves:
                  AIMove();
+                 game.checkWin();
                  if (!checkStatus()) { break; }
              } else {
                  // AI moves first:
                  AIMove();
+                 game.checkWin();
                  if (!checkStatus()) { break; }
 
                 // Then player moves:
                 playerMove();
+                game.checkWin();
                 if (!checkStatus()) { break; }
              }
          }
