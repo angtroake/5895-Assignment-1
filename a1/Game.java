@@ -50,7 +50,7 @@ public class Game {
      *
      */
     public boolean placePlayerPiece(int i, int j) {
-    	if(this.board.get(i, j) != ' ') {
+    	if(this.board.get(i, j) == ' ') {
     		return this.board.set(i, j, playerIsX ? 'X' : 'O');
     	}
     	return false;
