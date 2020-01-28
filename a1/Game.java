@@ -10,6 +10,7 @@ public class Game {
     private Board board = new Board();
     private GameStatus status;
     private AI ai;
+    private boolean playerIsX;
 
     /*
      * TBD: Create additional private members if useful.
@@ -19,18 +20,15 @@ public class Game {
      * Construct a new Game according to the given parameters.
      */
     public Game(boolean playerIsX, boolean challenging) {
-        /*
-         * TBD
-         */
+    	this.playerIsX = playerIsX;
+    	this.status = GameStatus.IN_PROGRESS;
+    	this.ai = challenging ? new SmartAI(!playerIsX) : new DumbAI(!playerIsX);
     }
 
     /**
      * Return a copy of the board's current contents.
      */
     public Board getBoard() {
-        /*
-         * TBD
-         */
     	return this.board;
     }
 
@@ -38,9 +36,6 @@ public class Game {
      * Get the game's status.
      */
     public GameStatus getStatus() {
-        /*
-         * TBD
-         */
     	return this.status;
     }
     
@@ -55,20 +50,17 @@ public class Game {
      *
      */
     public boolean placePlayerPiece(int i, int j) {
-        /*
-         * TBD
-         */
     	if(this.board.get(i, j) != ' ') {
-    		this.board.set(i, j, c);
+    		return this.board.set(i, j, playerIsX ? 'X' : 'O');
     	}
+    	return false;
     }
 
     /**
      * @precondition status == IN_PROGRESS
      */
     public void aiPlacePiece() {
-        /*
-         * TBD
-         */
+    	Move move = ai.chooseMove(this.board);
+    	this.board.set(move);
     }
 }

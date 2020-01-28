@@ -14,6 +14,7 @@ public class DumbAI implements AI {
     /*
      * TBD: Create additional private members if useful.
      */
+    private boolean isX;
     
     /**
      * Construct a DumbAI.
@@ -25,11 +26,21 @@ public class DumbAI implements AI {
         /*
          * TBD
          */
+    	this.isX = aiIsX;
     }
 
     public Move chooseMove(Board board) {
         /*
          * TBD
          */
+    	Random r = new Random();
+    	int i, j;
+    	do {
+    		i = r.nextInt(3);
+        	j = r.nextInt(3);
+    	}
+    	while(board.get(i, j) != ' ');
+    	
+    	return new Move(i, j, this.isX ? 'X' : 'O');
     }
 }

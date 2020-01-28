@@ -92,11 +92,23 @@ public class Board {
      * Set the entry of the board at column i, row j.  Both indices should
      * be in the range [0, 2].
      */
-    public void set(int i, int j, char c) {
+    public boolean set(int i, int j, char c) {
     	if(i >= 0 && i <= 2) {
     		if(j >= 0 && j <= 2) {
     	    	this.board[i][j] = c;
+    	    	return true;
     		}
     	}
+    	return false;
+    }
+    
+    public boolean set(Move m) {
+    	if(m.getI() >= 0 && m.getI() <= 2) {
+    		if(m.getJ() >= 0 && m.getJ() <= 2) {
+    	    	this.board[m.getI()][m.getJ()] = m.getPiece();
+    	    	return true;
+    		}
+    	}
+    	return false;
     }
 }
