@@ -107,10 +107,18 @@ public class ConsoleRunner {
 
          // Determining the result:
          if (status == GameStatus.X_WON) {
-            playerIsX ? System.out.println("You won!") : System.out.println("You lost!");
+            if (playerIsX) {
+                System.out.println("You won!");
+            } else {
+                System.out.println("You lost!");
+            }
          } else if (status == GameStatus.O_WON) {
-            playerIsX ? System.out.println("You lost!") : System.out.println("You won!");
-         } else if (status == GameStatus.DRAW) {
+            if (playerIsX) {
+                System.out.println("You lost!");
+            } else {
+                System.out.println("You won!");
+            }
+        } else if (status == GameStatus.DRAW) {
              System.out.println("It's a draw!");
          }
 
