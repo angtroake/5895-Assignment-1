@@ -50,6 +50,9 @@ public class ConsoleRunner {
 
         // Printing the board:
         game.getBoard().toString();
+
+        // Starting the game:
+        mainLoop();
     }
 
     // Determining whether the user wants to play as X:
