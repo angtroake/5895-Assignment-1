@@ -4,7 +4,7 @@ package a1;
  *
  * STUDENTS: Nothing to change here.
  *
- * @author INSERT YOUR NAME(S) HERE
+ * @author Danielle Reid & Andrew Troake
  */
 
 public interface AI {

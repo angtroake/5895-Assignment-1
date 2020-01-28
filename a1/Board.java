@@ -2,7 +2,7 @@ package a1;
 /**
  * An immutable class that represents the state of the 3×3 tic-tac-toe board.
  *
- * @author INSERT YOUR NAME(S) HERE
+ * @author Danielle Reid & Andrew Troake
  */
 
 public class Board {
