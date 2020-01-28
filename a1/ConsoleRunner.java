@@ -139,10 +139,13 @@ public class ConsoleRunner {
         int yCoordinate = scanner.nextInt();
 
         // Making the player's move:
-        game.placePlayerPiece(yCoordinate, xCoordinate);
-
-        System.out.println("After your move:");
-        System.out.println(game.getBoard().toString());
+        if(!game.placePlayerPiece(yCoordinate, xCoordinate)) {
+        	System.out.println("Invalid Move!");
+        	playerMove(); //run again if invalid
+        }else {
+        	System.out.println("After your move:");
+        	System.out.println(game.getBoard().toString());
+        }
     }
 
     // Executes an AI move:

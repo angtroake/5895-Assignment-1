@@ -12,7 +12,7 @@ import java.lang.UnsupportedOperationException;
 public class SmartAI implements AI {
     
     private char piece;
-    
+
     /**
      * Construct a SmartAI.
      * 
@@ -21,9 +21,11 @@ public class SmartAI implements AI {
      */
     public SmartAI(boolean aiIsX) {
         throw new UnsupportedOperationException("Not implemented.");
+    	//this.piece = aiIsX ? 'X' : 'O';
     }
 
     public Move chooseMove(Board board) {
         throw new UnsupportedOperationException("Not implemented.");
+    	
     }
 }

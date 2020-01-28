@@ -101,6 +101,7 @@ public class Game {
     		}
     	}
     	
+    	if(this.board.isFull()) this.status = GameStatus.DRAW;
     	
     	
     }
