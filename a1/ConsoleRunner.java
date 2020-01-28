@@ -17,6 +17,8 @@ public class ConsoleRunner {
      * goes first.
      */
     private boolean playerIsX;
+    private boolean challenging;
+    private GameStatus status;
 
     private Game game;
     
@@ -37,8 +39,31 @@ public class ConsoleRunner {
          * Use the 'next' method of Scanner and the 'matches' of the String
          * class to process user responses as strings.
          */
-    	playerIsX = true;
-    	game = new Game(playerIsX, challenging)
+        playAsX();
+        pickAnAI();
+
+        // Creating the game:
+        game = new Game(playerIsX, challenging);
+
+        // Initializing the status:
+        status = game.getStatus();
+
+        // Printing the board:
+        game.getBoard().toString();
+    }
+
+    // Determining whether the user wants to play as X:
+    private void playAsX() {
+        System.out.println("Do you want to play as X (Y/N):");
+        String beX = scanner.nextLine();
+        playerIsX = beX.contains("Y") ? true : false;
+    }
+
+    // Determining whether to use DumbAI or SmartAI:
+    private void pickAnAI() {
+        System.out.println("Do you want a challenge (Y/N):");
+        String challenge = scanner.nextLine();
+        challenging = challenge.contains("Y") ? true : false;
     }
 
     /**
@@ -55,5 +80,71 @@ public class ConsoleRunner {
          * There is enough work to do here that you may want to introduce
          * private methods (i.e. helper methods).
          */
+
+         while (status == GameStatus.IN_PROGRESS) {
+             if (playerIsX) {
+                 // Player moves first:
+                 playerMove();
+                 if (!checkStatus()) { break; }
+
+                 // Then AI moves:
+                 AIMove();
+                 if (!checkStatus()) { break; }
+             } else {
+                 // AI moves first:
+                 AIMove();
+                 if (!checkStatus()) { break; }
+
+                // Then player moves:
+                playerMove();
+                if (!checkStatus()) { break; }
+             }
+         }
+
+         // Determining the result:
+         if (status == GameStatus.X_WON) {
+            playerIsX ? System.out.println("You won!") : System.out.println("You lost!");
+         } else if (status == GameStatus.O_WON) {
+            playerIsX ? System.out.println("You lost!") : System.out.println("You won!");
+         } else if (status == GameStatus.DRAW) {
+             System.out.println("It's a draw!");
+         }
+
+         return;
+    }
+
+    // Determines the player's move:
+    private void playerMove() {
+        // Get the x-coordinate:
+        System.out.println("Enter desired x-coordinate:");
+        int xCoordinate = scanner.nextInt();
+
+        // Get the y-coordinate:
+        System.out.println("Enter desired y-coordinate:");
+        int yCoordinate = scanner.nextInt();
+
+        // Making the player's move:
+        game.placePlayerPiece(xCoordinate, yCoordinate);
+    }
+
+    // Executes an AI move:
+    private void AIMove() {
+        // Making the AI's move:
+        game.aiPlacePiece();
+
+        // Printing the AI's move:
+        System.out.println("After AI move:");
+        System.out.println(game.getBoard().toString());
+    }
+
+    /**
+     * Checks the game's status.
+     * 
+     * @return true if the game is still in progress, false otherwise.
+     */
+    private boolean checkStatus() {
+        status = game.getStatus();
+
+        return (status == GameStatus.IN_PROGRESS);
     }
 }
