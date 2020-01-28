@@ -49,7 +49,7 @@ public class ConsoleRunner {
         status = game.getStatus();
 
         // Printing the board:
-        game.getBoard().toString();
+        System.out.println(game.getBoard().toString());
 
         // Starting the game:
         mainLoop();
