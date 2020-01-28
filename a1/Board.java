@@ -50,7 +50,7 @@ public class Board {
     		for(int j = 0 ; j < 3 ; j++) {
     			returnString += " " + board[i][j] + " |";
     		}
-    		returnString += "\n";
+    		returnString += "-------------\n";
     	}
     	returnString += "-------------\n";
     	return returnString;
