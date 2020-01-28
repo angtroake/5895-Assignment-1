@@ -38,6 +38,7 @@ public class ConsoleRunner {
          * class to process user responses as strings.
          */
     	playerIsX = true;
+    	game = new Game(playerIsX, challenging)
     }
 
     /**

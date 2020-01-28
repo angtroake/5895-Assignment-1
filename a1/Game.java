@@ -58,8 +58,8 @@ public class Game {
         /*
          * TBD
          */
-    	if(board.get(i, j) != ' ') {
-    		
+    	if(this.board.get(i, j) != ' ') {
+    		this.board.set(i, j, c);
     	}
     }
 
