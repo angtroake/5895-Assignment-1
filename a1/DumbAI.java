@@ -2,7 +2,7 @@ package a1;
 /**
  * Realization of AI interface using simplistic random placement strategy.
  *
- * @author INSERT YOUR NAME(S) HERE
+ * @author Danielle Reid & Andrew Troake
  */
 
 import java.util.Random;

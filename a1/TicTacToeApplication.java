@@ -3,7 +3,7 @@ package a1;
  * Contains the main method. Creates a ConsoleRunner and then calls its
  * mainLoop method.
  *
- * @author INSERT YOUR NAME(S) HERE
+ * @author Danielle Reid & Andrew Troake
  */
 
 public class TicTacToeApplication {
