@@ -17,9 +17,7 @@ public class Board {
      * Construct an empty board (contains all space char's).
      */
     public Board() {
-        /*
-         * TBD
-         */
+        // Fills all spaces with ' '
     	for(int i = 0 ; i < 3 ; i++) {
     		for(int j = 0 ; j < 3 ; j++) {
     			this.board[i][j] = ' ';
@@ -32,18 +30,14 @@ public class Board {
      * 'move' to generate this board's state.
      */
     public Board(Board other, Move move) {
-        /*
-         * TBD
-         */
+    	this.board = other.board;
+    	this.set(move);
     }
 
     /**
      * Convert to a string that shows the board's state.
      */
     public String toString() {
-        /*
-         * TBD
-         */
     	String returnString = "-------------\n";
     	for(int i = 0 ; i < 3 ; i++) {
     		returnString += "|";

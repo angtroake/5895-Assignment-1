@@ -101,6 +101,7 @@ public class Game {
     		}
     	}
     	
+    	//check for tie
     	if(this.board.isFull()) this.status = GameStatus.DRAW;
     	
     	

@@ -33,14 +33,8 @@ public class ConsoleRunner {
      * Constructor
      */
     public ConsoleRunner() {    
-        /*
-         * TBD
-         *
-         * Use the 'next' method of Scanner and the 'matches' of the String
-         * class to process user responses as strings.
-         */
-        playAsX();
-        pickAnAI();
+        playAsX(); //prompt player to select X or O
+        pickAnAI(); //prompt player to play against dumb or smart AI.
 
         // Creating the game:
         game = new Game(playerIsX, challenging);
@@ -74,18 +68,10 @@ public class ConsoleRunner {
      * when one party has won or there has been a draw.
      */
     public void mainLoop() {
-        /*
-         * TBD
-         *
-         * Use the 'nextInt' method of Scanner class to read user responses as
-         * integers.
-         *
-         * There is enough work to do here that you may want to introduce
-         * private methods (i.e. helper methods).
-         */
-
+    	// IN_PROGRESS means there is no winner so far
          while (status == GameStatus.IN_PROGRESS) {
              if (playerIsX) {
+            	 //if player is X
                  // Player moves first:
                  playerMove();
                  game.checkWin();
@@ -96,6 +82,7 @@ public class ConsoleRunner {
                  game.checkWin();
                  if (!checkStatus()) { break; }
              } else {
+            	 // if AI is X
                  // AI moves first:
                  AIMove();
                  game.checkWin();

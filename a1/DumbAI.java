@@ -23,16 +23,15 @@ public class DumbAI implements AI {
      *              the 'X'.
      */
     public DumbAI(boolean aiIsX) {
-        /*
-         * TBD
-         */
     	this.isX = aiIsX;
     }
-
+    
+    /**
+     * Chooses a random empty location on the board 
+     * 
+     * @returns Move object.
+     */
     public Move chooseMove(Board board) {
-        /*
-         * TBD
-         */
     	Random r = new Random();
     	int i, j;
     	do {

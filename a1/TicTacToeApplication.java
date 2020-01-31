@@ -9,9 +9,6 @@ package a1;
 public class TicTacToeApplication {
 
     public static void main(String[] args) {
-        /*
-         * TBD
-         */
     	new ConsoleRunner();
     }
 }
